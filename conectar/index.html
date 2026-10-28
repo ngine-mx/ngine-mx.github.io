@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" data-title-en="Back to Mepo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Vuelve a Mepo</title>
+<script>
+// Sign-in bridge: providers like Slack only accept https redirect addresses, so they send you here and this page
+// hands code, state and error straight on to the Mepo app listening on this computer. Nothing is saved or logged,
+// and the page loads nothing else before leaving, so the code isn't sent anywhere but to the app.
+(() => {
+  const q = new URLSearchParams(location.search), out = new URLSearchParams();
+  for (const k of ['code', 'state', 'error']) if (q.has(k)) out.set(k, q.get(k));
+  if ([...out.keys()].length) { window.__leaving = true; location.replace('http://127.0.0.1:8917/callback?' + out.toString()); }
+})();
+</script>
+<meta name="theme-color" content="#171230">
+<link rel="stylesheet" href="/doc.css?v=1">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Mepo"><canvas id="logo" width="36" height="36"></canvas>Mepo</a>
+    <button class="lang" id="lang" type="button" aria-label="English">EN</button>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <article class="doc px" data-lang="es">
+    <p class="kicker">INICIAR SESIÓN</p>
+    <h1 class="leaving">Volviendo a Mepo…</h1>
+    <h1 class="idle">Vuelve a Mepo</h1>
+    <p class="idle">Esta página solo sirve de puente al conectar una app. Regresa a Mepo para terminar; si no se conectó, vuelve a tocar <b>Conectar</b> en <span class="path">⌄ › Conexiones</span>.</p>
+  </article>
+  <article class="doc px" data-lang="en" hidden>
+    <p class="kicker">SIGN IN</p>
+    <h1 class="leaving">Going back to Mepo…</h1>
+    <h1 class="idle">Go back to Mepo</h1>
+    <p class="idle">This page is just a bridge while you connect an app. Go back to Mepo to finish; if it didn’t connect, tap <b>Connect</b> again in <span class="path">⌄ › Connections</span>.</p>
+  </article>
+</div>
+</main>
+
+<script>
+document.querySelectorAll(window.__leaving ? '.idle' : '.leaving').forEach(el => { el.hidden = true; });
+// Fonts and sprites only when there's nothing to pass on, so a sign-in code never sits on a page loading other sites.
+if (!window.__leaving) {
+  const f = document.createElement('link'); f.rel = 'stylesheet';
+  f.href = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@500;700&family=Silkscreen&display=swap';
+  document.head.append(f);
+  const s = document.createElement('script'); s.src = '/sprites.js?v=4';
+  s.onload = () => { const d = document.createElement('script'); d.src = '/doc.js?v=1'; document.body.append(d); };
+  document.body.append(s);
+}
+</script>
+</body>
+</html>

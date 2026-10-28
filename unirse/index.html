@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Únete a mi equipo en Mepo</title>
+<meta name="description" content="Te invitaron a un equipo de Mepo, la mascota pixelada que no te deja olvidar tus pendientes.">
+<meta property="og:title" content="Te invitaron a un equipo de Mepo">
+<meta property="og:description" content="Abre la invitación en Mepo para que sus mascotas se visiten y se echen porras.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#171230">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect x='3' y='3' width='10' height='9' fill='%232b1d3d'/%3E%3Crect x='2' y='4' width='12' height='7' fill='%232b1d3d'/%3E%3Crect x='3' y='4' width='10' height='7' fill='%23fff4e6'/%3E%3Crect x='4' y='6' width='2' height='2' fill='%232b1d3d'/%3E%3Crect x='10' y='6' width='2' height='2' fill='%232b1d3d'/%3E%3Crect x='6' y='0' width='2' height='3' fill='%236fdc8c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@500;700&family=Silkscreen&display=swap">
+<style>
+/* Team invite page: same dusk-violet world and notched pixel frames as the landing. */
+:root{
+  color-scheme: dark;
+  --ink:#171230; --panel:#241d45; --panel-2:#30275a; --line:#463a7c;
+  --fg:#f5f0ff; --muted:#b4a9d8;
+  --gold:#ffd45c; --rose:#ff7aa8; --teal:#5fe0c8; --sky:#8fd3ff;
+  --bubble:#fff8ee; --bubble-ink:#2b1d3d;
+  --f-display:"Pixelify Sans","Courier New",monospace;
+  --f-label:"Silkscreen","Courier New",monospace;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--ink)}
+body{margin:0;min-height:100vh;color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.55;background:var(--ink);
+  background-image:radial-gradient(#231c47 1.2px,transparent 1.5px);background-size:24px 24px;display:flex;flex-direction:column}
+h1,h2,p{margin:0}
+a{color:var(--sky)}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.px{--b:var(--panel);background:var(--b);box-shadow:0 -4px 0 var(--b),0 4px 0 var(--b),-4px 0 0 var(--b),4px 0 0 var(--b)}
+.wrap{width:100%;max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gold);font-family:var(--f-display);font-weight:700;font-size:28px;letter-spacing:.04em;text-shadow:2px 2px 0 var(--rose)}
+.brand canvas{width:40px;height:40px}
+.lang{font-family:var(--f-label);font-size:12px;letter-spacing:.05em;color:var(--fg);background:none;border:2px solid var(--line);padding:5px 8px;cursor:pointer}
+.lang:hover{border-color:var(--muted)}
+
+main{flex:1;padding-block:24px 48px}
+.card{padding:28px 24px;margin:4px;text-align:center}
+.card > canvas{width:220px;height:180px;margin:-12px auto 4px}
+.kicker{font-family:var(--f-label);font-size:13px;letter-spacing:.08em;color:var(--teal);margin-bottom:8px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1.1;text-wrap:balance}
+.lead{color:var(--muted);margin-top:10px;text-wrap:balance}
+.code{display:inline-block;font-family:var(--f-body);font-weight:700;font-size:clamp(32px,9vw,52px);letter-spacing:.08em;font-variant-numeric:tabular-nums;color:var(--gold);
+  text-shadow:3px 3px 0 var(--rose);--b:var(--ink);background:var(--b);padding:8px 22px;margin:24px 4px 4px;user-select:all;-webkit-user-select:all;
+  box-shadow:0 -4px 0 var(--b),0 4px 0 var(--b),-4px 0 0 var(--b),4px 0 0 var(--b)}
+.btn{--b:var(--gold);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:20px;
+  color:var(--bubble-ink);background:var(--b);border:0;padding:12px 22px;margin:4px;cursor:pointer;text-decoration:none;white-space:nowrap;
+  box-shadow:0 -4px 0 var(--b),0 4px 0 var(--b),-4px 0 0 var(--b),4px 0 0 var(--b),0 10px 0 -2px #b8892a}
+.btn:hover{--b:#ffe07e}
+.btn:active{transform:translateY(3px);box-shadow:0 -4px 0 var(--b),0 4px 0 var(--b),-4px 0 0 var(--b),4px 0 0 var(--b)}
+.btn.ghost{--b:var(--panel-2);color:var(--fg);box-shadow:0 -4px 0 var(--b),0 4px 0 var(--b),-4px 0 0 var(--b),4px 0 0 var(--b),0 10px 0 -2px #120e28}
+.btn.ghost:hover{--b:#3a3070}
+.btn.big{font-size:24px;padding:14px 28px}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
+.hint{color:var(--muted);font-size:15px;margin-top:18px}
+.hint b{color:var(--fg);font-weight:700;white-space:nowrap}
+.note{font-size:14px;color:var(--muted);margin-top:10px;min-height:1.5em}
+.note.ok{color:var(--teal)}
+.get{margin-top:28px;padding:24px;--b:var(--panel-2);text-align:center}
+.get h2{font-family:var(--f-display);font-weight:700;font-size:24px}
+.get p{color:var(--muted);margin-top:6px}
+.get .actions{margin-top:18px}
+.ver{font-family:var(--f-label);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:14px}
+.oses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px;align-items:start}
+.os .btn{width:calc(100% - 8px);white-space:normal;font-size:18px}
+.os .btn.ghost{--b:var(--line)}
+.os .btn.ghost:hover{--b:#54479a}
+.os .ver{margin-top:12px}
+.os .warn{font-size:14px;color:var(--muted);margin-top:8px;text-align:left}
+.os .warn b{color:var(--fg)}
+@media (max-width:560px){.oses{grid-template-columns:minmax(0,1fr)}}
+footer{padding-block:24px 40px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:480px){
+  .card{padding:22px 16px}
+  .btn.big{font-size:21px;padding:12px 20px;width:calc(100% - 8px)}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Mepo"><canvas id="logo" width="36" height="36"></canvas>Mepo</a>
+    <button class="lang" id="lang" type="button" aria-label="English" data-en-label="Español">EN</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="card px" id="ok" hidden>
+      <canvas id="pets" width="44" height="36" role="img" aria-label="Dos mascotas de Mepo saludándose" data-en-label="Two Mepo pets saying hi"></canvas>
+      <p class="kicker" data-en="TEAM INVITE">INVITACIÓN A UN EQUIPO</p>
+      <h1 data-en="You’ve been invited to a Mepo team!">¡Te invitaron a un equipo de Mepo!</h1>
+      <p class="lead" data-en="Your pets will visit each other’s islands, cheer each other on and add to the team goal.">Sus mascotas se visitarán, se echarán porras y sumarán a la meta del equipo.</p>
+      <div class="code" id="code" aria-label="Código de invitación" data-en-label="Invite code"></div>
+      <div class="actions">
+        <a class="btn big" id="open" href="#" data-en="Open in Mepo">Abrir en Mepo</a>
+        <button class="btn ghost" id="copy" type="button" data-en="Copy code">Copiar código</button>
+      </div>
+      <p class="note" id="note" role="status"></p>
+      <p class="hint" data-en="If it doesn’t open: copy the code, then in Mepo go to <b>⌄ › My team › Paste and join</b>.">Si no se abre: copia el código y en Mepo ve a <b>⌄ › Mi equipo › Pegar y unirme</b>.</p>
+    </section>
+
+    <section class="card px" id="bad" hidden>
+      <canvas id="sad" width="44" height="36" role="img" aria-label="Mepo confundido" data-en-label="Confused Mepo"></canvas>
+      <h1 data-en="This invite link isn’t valid">Este enlace de invitación no es válido</h1>
+      <p class="lead" data-en="Ask whoever invited you to send it again. Invite codes look like <b>MEPO-AB12C</b>.">Pídele a quien te invitó que te lo mande de nuevo. Los códigos se ven así: <b>MEPO-AB12C</b>.</p>
+      <div class="actions"><a class="btn" href="/" data-en="Meet Mepo">Conoce a Mepo</a></div>
+    </section>
+
+    <section class="get px">
+      <h2 data-en="Don’t have Mepo yet?">¿Aún no tienes Mepo?</h2>
+      <p data-en="Mepo is a pixel pet for your Mac or Windows PC that won’t let you forget your to-dos, without nagging you.">Mepo es una mascota pixelada para tu Mac o tu PC con Windows que no te deja olvidar tus pendientes, sin regañarte.</p>
+      <div class="oses">
+        <div class="os" id="os-mac">
+          <a class="btn ghost" id="download" href="https://wnhtyhhyigvgjqnblvve.supabase.co/storage/v1/object/public/mepo/Mepo.dmg" data-en="Download Mepo for Mac">Descargar Mepo para Mac</a>
+          <p class="ver" id="ver" data-en="MACOS 13 OR NEWER">MACOS 13 O MÁS NUEVO</p>
+        </div>
+        <div class="os" id="os-win">
+          <a class="btn ghost" id="download-win" href="https://github.com/ngine-mx/mepo-descargas/releases/latest/download/Mepo-Setup.exe" data-en="Download for Windows">Descargar para Windows</a>
+          <p class="ver" data-en="VERSION 0.1.5 · WINDOWS 10 OR 11 · 112 MB">VERSIÓN 0.1.5 · WINDOWS 10 U 11 · 112 MB</p>
+          <p class="warn" data-en="The first time, Windows may say <b>“Windows protected your PC”</b>: tap <b>More info › Run anyway</b>. It only happens once.">La primera vez Windows puede decir <b>«Windows protegió su PC»</b>: toca <b>Más información › Ejecutar de todos modos</b>. Solo pasa una vez.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer><span>© 2026 Mepo · getmepo.com</span></footer>
+
+<script src="/sprites.js?v=4"></script>
+<script src="/scene.js?v=2"></script>
+<script>
+(() => {
+// The installer's fixed public link (always the newest build) and the file that says which version that is.
+const RELEASES = 'https://wnhtyhhyigvgjqnblvve.supabase.co/storage/v1/object/public/mepo/';
+const DOWNLOAD_URL = RELEASES + 'Mepo.dmg';
+
+const $ = id => document.getElementById(id);
+
+/* ---------- language (shared with the landing) ---------- */
+const LANG_KEY = 'mepo-landing-lang';
+const LANG = (() => {
+  const q = new URLSearchParams(location.search).get('lang');
+  if (q === 'es' || q === 'en') return q;
+  try { const saved = localStorage.getItem(LANG_KEY); if (saved === 'es' || saved === 'en') return saved; } catch (e) {}
+  return 'es';
+})();
+const tr = (es, en) => LANG === 'en' ? en : es;
+if (LANG === 'en') {
+  document.documentElement.lang = 'en';
+  document.title = 'Join my team on Mepo';
+  document.querySelectorAll('[data-en]').forEach(el => { el.innerHTML = el.dataset.en; });
+  document.querySelectorAll('[data-en-label]').forEach(el => { el.setAttribute('aria-label', el.dataset.enLabel); });
+  $('lang').textContent = 'ES';
+}
+$('lang').addEventListener('click', () => {
+  try { localStorage.setItem(LANG_KEY, LANG === 'en' ? 'es' : 'en'); } catch (e) {}
+  const u = new URL(location.href); u.searchParams.delete('lang'); location.replace(u.href);
+});
+
+/* ---------- the invite code ---------- */
+// Same format the Mac app accepts (it also uppercases what you paste).
+const raw = (new URLSearchParams(location.search).get('c') || '').trim().toUpperCase();
+const CODE = /^MEPO-[A-Z0-9]{5}$/.test(raw) ? raw : null;
+$(CODE ? 'ok' : 'bad').hidden = false;
+$('download').href = DOWNLOAD_URL;
+// Shows the current version under the download button; without it, only the macOS requirement.
+fetch(RELEASES + 'latest.json', { cache: 'no-store' }).then(r => r.json()).then(j => {
+  if (j && /^[\d.]+$/.test(j.version)) $('ver').textContent = tr(`VERSIÓN ${j.version} · MACOS 13 O MÁS NUEVO`, `VERSION ${j.version} · MACOS 13 OR NEWER`);
+}).catch(() => {});
+// The download for this computer goes first, as the main button; on any other device both stay equal.
+// (The Windows version is written by hand: GitHub doesn't let other sites read its latest.yml.)
+const isWin = /Windows/.test(navigator.userAgent), isMac = /Mac/.test(navigator.platform || navigator.userAgent) && !('ontouchend' in document);
+if (isWin || isMac) {
+  const mine = $(isWin ? 'os-win' : 'os-mac');
+  mine.querySelector('.btn').classList.remove('ghost');
+  mine.parentNode.prepend(mine);
+}
+
+if (CODE) {
+  const app = 'mepo://unirse/' + CODE;
+  $('code').textContent = CODE;
+  $('open').href = app;
+  // Try the app once on its own, on a Mac or a Windows PC (both apps register mepo://).
+  // ?open=0 skips it (for previewing the page).
+  if ((isMac || isWin) && new URLSearchParams(location.search).get('open') !== '0') setTimeout(() => { location.href = app; }, 600);
+  $('copy').addEventListener('click', async () => {
+    let ok = false;
+    try { await navigator.clipboard.writeText(CODE); ok = true; } catch (e) {
+      const r = document.createRange(); r.selectNodeContents($('code'));
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { ok = document.execCommand('copy'); } catch (e2) {}
+    }
+    $('note').className = 'note' + (ok ? ' ok' : '');
+    $('note').textContent = ok ? tr('¡Código copiado! Ahora pégalo en Mepo.', 'Code copied! Now paste it in Mepo.')
+      : tr('No se pudo copiar; selecciona el código y cópialo a mano.', 'Couldn’t copy; select the code and copy it by hand.');
+  });
+}
+
+/* ---------- pets ---------- */
+function loop(canvas, draw) {
+  const c = canvas.getContext('2d'); c.imageSmoothingEnabled = false;
+  let last = performance.now(), acc = 0;
+  const tick = t => { acc = Math.min(acc + t - last, 250); last = t; const n = Math.floor(acc / (1000 / 60)); acc -= n * (1000 / 60); draw(c, n); requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+drawPet($('logo').getContext('2d'), 18, 34, 'happy', 20, { char: null, stage: 0 });
+if (CODE) {
+  // Mepo and Coach Bolo side by side, sending hearts.
+  const me = makeStage({ char: null, stage: 0 }), bolo = makeStage({ char: 'coach', stage: 1 });
+  me.x = 13; bolo.x = 31;
+  loop($('pets'), (c, n) => {
+    for (let i = 0; i < n; i++) { stepStage(me, 'love', 34); stepStage(bolo, 'happy', 34); }
+    c.clearRect(0, 0, 44, 36);
+    drawStage(c, me, 34, 'love', { fx: 1 }); drawStage(c, bolo, 34, 'happy', { fx: -1 });
+  });
+} else {
+  const s = makeStage({ char: null, stage: 0 }); s.x = 22;
+  loop($('sad'), (c, n) => { for (let i = 0; i < n; i++) stepStage(s, 'dizzy', 34); c.clearRect(0, 0, 44, 36); drawStage(c, s, 34, 'dizzy'); });
+}
+})();
+</script>
+</body>
+</html>
